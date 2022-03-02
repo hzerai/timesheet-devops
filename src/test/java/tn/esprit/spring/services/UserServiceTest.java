@@ -20,8 +20,6 @@ import tn.esprit.spring.entities.User;
 @SpringBootTest
 public class UserServiceTest {
 
-	private static Long USER_TEST_ID = 999999L;
-
 	@Autowired
 	private IUserService userService;
 
@@ -38,13 +36,12 @@ public class UserServiceTest {
 	public void testAddUser() {
 
 		User userTest = new User();
-		userTest.setId(USER_TEST_ID);
 		userTest.setDateNaissance(new Date());
 		userTest.setLastName("UserLastNameTest");
-		userService.addUser(userTest);
-		User retrievedUser = userService.retrieveUser(String.valueOf(USER_TEST_ID));
+		userTest = userService.addUser(userTest);
+		User retrievedUser = userService.retrieveUser(userTest.getId());
 		Assertions.assertNotNull(retrievedUser);
-		userService.deleteUser(String.valueOf(USER_TEST_ID));
+		userService.deleteUser(userTest.getId());
 
 	}
 

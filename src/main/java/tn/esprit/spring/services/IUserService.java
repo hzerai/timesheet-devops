@@ -8,9 +8,9 @@ public interface IUserService {
 	 
 	List<User> retrieveAllUsers(); 
 	User addUser(User u);
-	void deleteUser(String id);
+	void deleteUser(Long id);
 	User updateUser(User u);
-	User retrieveUser(String id);
+	User retrieveUser(Long id);
 
 } 
  
