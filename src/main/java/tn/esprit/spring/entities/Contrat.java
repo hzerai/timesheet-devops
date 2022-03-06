@@ -2,12 +2,10 @@ package tn.esprit.spring.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -28,7 +26,6 @@ public class Contrat implements Serializable {
 	private String typeContrat;
  
 	@JsonIgnore
-	@OneToOne(mappedBy="contrat")
 	private Employe employe;
 
 	private float salaire;

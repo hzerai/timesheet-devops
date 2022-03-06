@@ -2,15 +2,11 @@ package tn.esprit.spring.entities;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,10 +23,9 @@ public class Departement implements Serializable {
 	private String name;
 	
 	@JsonIgnore
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ElementCollection
 	private List<Employe> employes;
 	 
-	@ManyToOne
 	private Entreprise entreprise;
 
 	public Departement() {
