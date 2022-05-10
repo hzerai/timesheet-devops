@@ -48,7 +48,7 @@ class EntrepriseServiceImplTest {
 	@Order(4)
 	public void testRetrieveEntreprise() {
 		Entreprise entrepriseRetreived = entrepriseService.retrieveEntreprise(1L);
-		Assertions.assertEquals(1L, entrepriseRetreived);
+		Assertions.assertEquals(1L, entrepriseRetreived.getId());
 	}
 	
 	@Test

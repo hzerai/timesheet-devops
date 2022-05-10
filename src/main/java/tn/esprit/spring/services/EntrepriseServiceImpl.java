@@ -91,7 +91,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		try {
 			l.info("In Method retrieveEntreprise");	
 			en =  entrepriseRepository.findById(id).get(); 
-			l.info("Out of Method retrieveEntreprise with Success : " + en.getId());
+			l.info("Out of Method retrieveEntreprise with Success : " + en.getName());
 			
 		} catch (Exception e) {
 			l.error("Out of Method retrieveEntreprise with Errors : " + e);		}
