@@ -9,11 +9,11 @@ public interface MissionService {
 
     List<Mission> retrieveAllMissions();
 
-    Mission addMission(Mission en);
+    Mission addMission(Mission mission);
 
     void deleteMission(Long id);
 
-    Mission updateMission(Mission en);
+    Mission updateMission(Mission mission);
 
     Mission retrieveMission(Long id);
 
