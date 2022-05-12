@@ -37,20 +37,17 @@ public class MissionServiceImpl implements MissionService {
     }
 
     @Override
-    public Mission addMission(Mission en) {
+    public Mission addMission(Mission mission) {
         Mission e_saved = null;
 
         try {
             l.info("In Method addMission :");
-            e_saved = missionRepository.save(en);
+            e_saved = missionRepository.save(mission);
             l.info("Out of Method addMission with Success" + e_saved.getName());
-
         } catch (Exception e) {
             l.error("Out of Method addMission with Errors : " + e);
         }
-
         return e_saved;
-
     }
 
     @Override
@@ -66,13 +63,13 @@ public class MissionServiceImpl implements MissionService {
     }
 
     @Override
-    public Mission updateMission(Mission en) {
+    public Mission updateMission(Mission mission) {
 
         Mission missionUpdated = null;
 
         try {
             l.info("In Method missionUpdated :");
-            missionUpdated = missionRepository.save(en);
+            missionUpdated = missionRepository.save(mission);
             l.info("Out of Method missionUpdated with Success" + missionUpdated.getName());
 
         } catch (Exception e) {

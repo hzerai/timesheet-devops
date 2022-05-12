@@ -23,7 +23,6 @@ class MissionServiceTest {
     public void testRetrieveAllMissions() {
         List<Mission> listMissions = missionService.retrieveAllMissions();
         Assertions.assertEquals(0, listMissions.size());
-
     }
 
     @Test
@@ -37,7 +36,7 @@ class MissionServiceTest {
     @Test
     @Order(3)
     public void testUpdateMission() throws ParseException {
-        Mission mission = new Mission("Mission Name 2", "Mission Description 2");
+        Mission mission = new Mission(1L, "Mission Name 2", "Mission Description 2");
         Mission missionUpdated = missionService.updateMission(mission);
         Assertions.assertEquals(mission.getName(), missionUpdated.getName());
     }
@@ -54,7 +53,6 @@ class MissionServiceTest {
     public void testDeleteMission() {
         missionService.deleteMission(1L);
         Assertions.assertEquals(0, missionService.retrieveAllMissions().size());
-
     }
 }
 
