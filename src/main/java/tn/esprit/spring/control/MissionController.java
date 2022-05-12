@@ -2,8 +2,8 @@ package tn.esprit.spring.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.entities.Entreprise;
-import tn.esprit.spring.services.IEntrepriseService;
+import tn.esprit.spring.entities.Mission;
+import tn.esprit.spring.services.mission.MissionService;
 
 import java.util.List;
 
@@ -17,41 +17,41 @@ public class MissionController {
 
     // Couplage Faible
     @Autowired
-    IEntrepriseService entrepriseService;
+    MissionService missionService;
 
-    // URL : http://localhost:????/????/retrieve-all-entreprises
-    @GetMapping("/retrieve-all-entreprises")
-    public List<Entreprise> retrieveAllEntreprises() {
-        List<Entreprise> list = entrepriseService.retrieveAllEntreprises();
+    // URL : http://localhost:????/????/retrieve-all-missions
+    @GetMapping("/retrieve-all-missions")
+    public List<Mission> retrieveAllMissions() {
+        List<Mission> list = missionService.retrieveAllMissions();
         return list;
     }
 
-    // http://localhost:????/timesheet-devops/retrieve-entreprise/{entreprise-id}
-    @GetMapping("/retrieve-entreprise/{entreprise-id}")
-    public Entreprise retrieveEntreprise(@PathVariable("entreprise-id") Long entrepriseId) {
-        return entrepriseService.retrieveEntreprise(entrepriseId);
+    // http://localhost:????/timesheet-devops/retrieve-mission/{mission-id}
+    @GetMapping("/retrieve-mission/{mission-id}")
+    public Mission retrieveMission(@PathVariable("mission-id") Long missionId) {
+        return missionService.retrieveMission(missionId);
     }
 
-    // Ajouter entreprise : http://localhost:????/timesheet-devops/add-entreprise
-    @PostMapping("/add-entreprise")
-    public Entreprise addEntreprise(@RequestBody Entreprise en) {
-        Entreprise entreprise = entrepriseService.addEntreprise(en);
-        return entreprise;
+    // Ajouter mission : http://localhost:????/timesheet-devops/add-mission
+    @PostMapping("/add-mission")
+    public Mission addMission(@RequestBody Mission en) {
+        Mission mission = missionService.addMission(en);
+        return mission;
     }
 
 
-    // Supprimer entreprise :
-    // http://localhost:????/timesheet-devops/remove-entreprise/{entreprise-id}
-    @DeleteMapping("/remove-entreprise/{entreprise-id}")
-    public void removeEntreprise(@PathVariable("entreprise-id") Long entrepriseId) {
-        entrepriseService.deleteEntreprise(entrepriseId);
+    // Supprimer mission :
+    // http://localhost:????/timesheet-devops/remove-mission/{mission-id}
+    @DeleteMapping("/remove-mission/{mission-id}")
+    public void removeMission(@PathVariable("mission-id") Long missionId) {
+        missionService.deleteMission(missionId);
     }
 
-    // Modifier entreprise
-    // http://localhost:????/timesheet-devops/modify-entreprise
-    @PutMapping("/modify-entreprise")
-    public Entreprise updateEntreprise(@RequestBody Entreprise entreprise) {
-        return entrepriseService.updateEntreprise(entreprise);
+    // Modifier mission
+    // http://localhost:????/timesheet-devops/modify-mission
+    @PutMapping("/modify-mission")
+    public Mission updateMission(@RequestBody Mission mission) {
+        return missionService.updateMission(mission);
     }
 
 }
