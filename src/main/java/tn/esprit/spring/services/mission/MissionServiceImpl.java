@@ -86,16 +86,15 @@ public class MissionServiceImpl implements MissionService {
 		try {
 			l.info("In Method retrieveMission :");
 			en = missionRepository.findById(id);
-			if (!en.isPresent()) {
-				return null;
+			if (en.isPresent()) {
+				l.info("Out of Method retrieveMission with Success" + en.get().getName());
+				return en.get();
 			}
-			l.info("Out of Method retrieveMission with Success" + en.get().getName());
-
 		} catch (Exception e) {
 			l.error("Out of Method retrieveMission with Errors : " + e);
 		}
+		return null;
 
-		return en.get();
 	}
 
 }

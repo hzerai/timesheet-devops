@@ -90,16 +90,16 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		try {
 			l.info("In Method retrieveEmployee :");
 			en = employeeRepository.findById(id);
-			if (!en.isPresent()) {
-				return null;
+			if (en.isPresent()) {
+				l.info("Out of Method retrieveEmployee with Success" + en.get().getNom());
+				return en.get();
 			}
-			l.info("Out of Method retrieveEmployee with Success" + en.get().getNom());
 
 		} catch (Exception e) {
 			l.error("Out of Method retrieveEmployee with Errors : " + e);
 		}
+		return null;
 
-		return en.get();
 	}
 
 }
