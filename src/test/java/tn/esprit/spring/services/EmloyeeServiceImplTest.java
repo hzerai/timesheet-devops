@@ -58,7 +58,11 @@ public class EmloyeeServiceImplTest {
     public void testDeleteEmployee() throws ParseException {
 		employeeService.deleteEmployee(1L);
 		Assertions.assertNull(employeeService.retrieveEmployee(1L));
+<<<<<<< HEAD
 		//Assertions.assertEquals(0, employeeService.retrieveAllEmployees());
+=======
+		Assertions.assertEquals(0, employeeService.retrieveAllEmployees().size());
+>>>>>>> 2a47c6578d346f53aca70daea7243721dc3a4e27
 	}
 	
 
