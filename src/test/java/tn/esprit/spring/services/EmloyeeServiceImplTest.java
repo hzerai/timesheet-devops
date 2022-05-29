@@ -46,7 +46,7 @@ public class EmloyeeServiceImplTest {
 	
 	@Test
 	@Order(4)
-	public void testRetrieveEmployee() {
+	public void testRetrieveEmployee() throws ParseException {
 		Employe employeeRetreived = employeeService.retrieveEmployee(1L);
 		
 		Assertions.assertEquals(1L, employeeRetreived.getId());
@@ -55,10 +55,14 @@ public class EmloyeeServiceImplTest {
 	
 	@Test
 	@Order(5)
-    public void testDeleteEmployee() {
+    public void testDeleteEmployee() throws ParseException {
 		employeeService.deleteEmployee(1L);
 		Assertions.assertNull(employeeService.retrieveEmployee(1L));
-		Assertions.assertEquals(0, employeeService.retrieveAllEmployees());
+<<<<<<< HEAD
+		//Assertions.assertEquals(0, employeeService.retrieveAllEmployees());
+=======
+		Assertions.assertEquals(0, employeeService.retrieveAllEmployees().size());
+>>>>>>> 2a47c6578d346f53aca70daea7243721dc3a4e27
 	}
 	
 
