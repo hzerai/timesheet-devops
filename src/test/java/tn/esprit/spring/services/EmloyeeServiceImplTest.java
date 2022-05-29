@@ -57,6 +57,7 @@ public class EmloyeeServiceImplTest {
 	@Order(5)
     public void testDeleteEmployee() throws ParseException {
 		employeeService.deleteEmployee(1L);
+		Assertions.assertNull(employeeService.retrieveEmployee(1L));
 		Assertions.assertEquals(0, employeeService.retrieveAllEmployees().size());
 	}
 	
