@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+  timesheet:
+    image: hzerai/timesheet-devops
+    hostname: timesheet
+    networks:
+      timesheetNetwork:
+        ipv4_address: 172.20.199.3
+    expose:
+      - "8090"
+    restart: on-failure:3
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0.28
+    hostname: mysql
+    networks:
+      timesheetNetwork:
+        ipv4_address: 172.20.199.2
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: timesheet
+    ports:
+      - "3306:3306"
+networks:
+  timesheetNetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.199.1/24
