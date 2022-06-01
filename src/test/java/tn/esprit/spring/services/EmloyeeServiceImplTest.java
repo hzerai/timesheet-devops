@@ -59,7 +59,7 @@ public class EmloyeeServiceImplTest {
 		employeeService.deleteEmployee(1L);
 		Assertions.assertNull(employeeService.retrieveEmployee(1L));
 		//Assertions.assertEquals(0, employeeService.retrieveAllEmployees());
-		Assertions.assertEquals(0, employeeService.retrieveAllEmployees().size());
+
 	}
 	
 
